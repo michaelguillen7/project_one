@@ -21,52 +21,60 @@
 </head>
 
 <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">
-                    <i class="material-icons">restaurant</i>Tender</a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">
+                <i class="material-icons">restaurant</i>Tender</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s10">
+                <div class="row">
+                    <div class="col s2"></div>
+                    <div class="col s8">
+                        <h5 class="center-align">Welcome to Tender!</h5>
+                        <p class="center-align">
+                           Ever feel lost when picking where to eat? Is your partner indecisive? Our app allows you to find the restaurant that you never knew you wanted. Just enter your criteria (or leave it alone if you're feeling adventurous) and find your perfect match!
+                        </p>
+                    </div>
+                    <div class="col s2"></div>
+                </div>
             </div>
-        </nav>
-        <div class="container">
+        </div>
         <div class="row">
             <div class="col s2"></div>
             <div class="col s8">
                 <div class="row">
                     <div class="input-field col s3">
-                        <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <label>Cuisine Type</label>
+                        <input placeholder="Any" id="first_name" type="text" class="validate">
+                        <label for="cuisine_type">Cuisine Type</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input placeholder="Current Location" id="first_name" type="text" class="validate">
+                        <label for="distance">Distance</label>
                     </div>
                     <div class="input-field col s3">
                         <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <label>Distance</label>
-                    </div>
-                    <div class="input-field col s3">
-                        <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <option value="" disabled selected>Any</option>
+                            <option value="1">1+ Stars </option>
+                            <option value="2">2+ Stars</option>
+                            <option value="3">3+ Stars</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="5">5 Stars</option>
                         </select>
                         <label>Rating</label>
                     </div>
                     <div class="input-field col s3">
                         <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <option value="" disabled selected>Any</option>
+                            <option value="1">$</option>
+                            <option value="2">$$</option>
+                            <option value="3">$$$</option>
+                            <option value="4">$$$$</option>
                         </select>
                         <label>Cost</label>
                     </div>
@@ -77,8 +85,8 @@
         <div class="row">
             <div class="col s5"></div>
             <div class="col s2">
-                <a class="waves-effect waves-light btn-large">
-                    <i class="material-icons left">restaurant</i>button</a>
+                <a class="waves-effect waves-light btn-large z-depth-2">
+                    <i class="material-icons left">restaurant</i>Fork It!</a>
             </div>
             <div class="col s5"></div>
         </div>
