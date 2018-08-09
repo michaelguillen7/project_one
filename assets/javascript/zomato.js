@@ -15,7 +15,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
 function findRestaurant(){
     var restaurantName = "Terry Black's";
-    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + restaurantName + "&lat=" + lat + "&lon=" + lon;
+    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + restaurantName + "&lat=" + lat + "&lon=" + lon + "&sort=real_distance";
     var restaurantID = "";
     $.ajax({
         url: queryURL,
