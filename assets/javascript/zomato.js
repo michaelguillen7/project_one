@@ -8,6 +8,7 @@ var lat, lon;
 navigator.geolocation.getCurrentPosition(function(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
+    console.log(lat + " " + lon);
     // My Function uses the global variables, but can also just pass in latitude and longitude
     findRestaurant();
 });
