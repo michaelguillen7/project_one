@@ -15,10 +15,10 @@ if (navigator.geolocation) {
 };
 
 $(document).ready(function () {
-  var userDistance = 20000;
-  var userPrice = 3;
-  var userCuisine = "pizza";
-  var userRating = 4;
+  var userDistance;
+  var userPrice;
+  var userCuisine;
+  var userRating;
   var choiceList = [];
 
   // Google Places API
@@ -28,6 +28,11 @@ $(document).ready(function () {
 
   // Google Places API Key: AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto
   $(document).on("click", "a", function () {
+
+    userCuisine = $("#cuisine").val();
+    userDistance = (parseInt($("#distance").val()) * 1609.344);
+    userRating = $("#rating").val();
+    userPrice = $("#price").val();
 
     queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
 
