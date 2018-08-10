@@ -38,5 +38,6 @@ $(document).ready(function () {
       console.log(choiceList);
     });
   });
-  // $('select').formSelect();
+  
+  $('select').formSelect();
 });
