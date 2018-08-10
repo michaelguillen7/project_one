@@ -20,6 +20,7 @@ $(document).ready(function () {
   var userCuisine;
   var userRating;
   var choiceList = [];
+  var returnChoice;
 
   // Google Places API
   var queryURL;
@@ -38,11 +39,23 @@ $(document).ready(function () {
 
     var targetUrl = queryURL;
 
-    $.get(proxyUrl + targetUrl, function(data) {
-      choiceList.push(data.results);
-      console.log(choiceList);
+    $.get(proxyUrl + targetUrl, function (data) {
+      for (item in data.results) {
+        choiceList.push(data.results[item]);
+      };
+      returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
+      console.log(returnChoice);
     });
+
+    //Insert query results onto Restaurant Details page
+    $("#result-images").html(returnChoice.photos[0].html_attributions[0]);
+    $("#result-name").text(returnChoice.name);
+    $("#result-rating").text(returnChoice.rating);
+    $("#result-price").text("$" * returnChoice.price_level);
+    // $("#result-website-link").attr("href", returnChoice);
+    // $("#result-website-link").text(returnChoice.name);
+    $("#result-description").text(returnChoice.type[0]);
   });
-  
+
   $('select').formSelect();
 });
