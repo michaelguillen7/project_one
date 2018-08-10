@@ -50,16 +50,16 @@
             <div class="col s8">
                 <div class="row">
                     <div class="input-field col s3">
-                        <input placeholder="Any" id="first_name" type="text" class="validate">
+                        <input placeholder="Any" id="cuisine" type="text" class="validate">
                         <label for="cuisine_type">Cuisine Type</label>
                     </div>
                     <div class="input-field col s3">
-                        <input placeholder="Current Location" id="first_name" type="text" class="validate">
+                        <input placeholder="Current Location" id="distance" type="text" class="validate">
                         <label for="distance">Distance</label>
                     </div>
                     <div class="input-field col s3">
-                        <select>
-                            <option value="" disabled selected>Any</option>
+                        <select id="rating">
+                            <option value="0">Any</option>
                             <option value="1">1+ Stars </option>
                             <option value="2">2+ Stars</option>
                             <option value="3">3+ Stars</option>
@@ -69,12 +69,12 @@
                         <label>Rating</label>
                     </div>
                     <div class="input-field col s3">
-                        <select>
-                            <option value="" disabled selected>Any</option>
-                            <option value="1">$</option>
-                            <option value="2">$$</option>
-                            <option value="3">$$$</option>
-                            <option value="4">$$$$</option>
+                        <select id="price">
+                            <option value="1">Any</option>
+                            <option value="2">$</option>
+                            <option value="3">$$</option>
+                            <option value="4">$$$</option>
+                            <option value="5">$$$$</option>
                         </select>
                         <label>Cost</label>
                     </div>
@@ -85,10 +85,22 @@
         <div class="row">
             <div class="col s5"></div>
             <div class="col s2">
-                <a class="waves-effect waves-light btn-large z-depth-2">
+                <a class="waves-effect waves-light btn-large z-depth-5" href="restaurant-details.html">
                     <i class="material-icons left">restaurant</i>Fork It!</a>
             </div>
             <div class="col s5"></div>
+        </div>
+    </div>
+
+    <div id="home" class="panel">
+        <div class="inner">
+            <div id="backgroundchange">
+                <div class="backgroundimg" id="back1"></div>
+                <div class="backgroundimg" id="back2"></div>
+                <div class="backgroundimg" id="back3"></div>
+                <div class="backgroundimg" id="back4"></div>
+                <div class="backgroundimg" id="back5"></div>
+            </div>
         </div>
     </div>
 
