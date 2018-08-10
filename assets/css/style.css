@@ -1,3 +1,11 @@
+body {
+  font-family: 'Cantarell', sans-serif;
+}
+
+.nav-wrapper {
+  font-family: 'Pacifico', cursive;
+}
+
 .input-field {
     margin: auto 0;
     margin-top: 150px;
@@ -8,22 +16,23 @@
     float: left;
     width: 200px;
     height: 150px;
-    margin: 20px 20px 25px;
+    margin: 0;
     overflow: hidden;
 }
 
-.bios img {
+/* .bios img {
     max-width: 100%;
     max-height: 100%;
     border: 0 none;
-}
+} */
 
-.bios h6 {
+.bios h5 {
     position: relative;
+    display: block;
     bottom: 20px;
-    width: 100%;
+    width: 250px;
     padding: 15px;
-    margin-bottom: 0;
+    margin: 0 auto;
     font-weight: 300;
     line-height: 15px;
     color: #fff;
@@ -38,7 +47,7 @@ html, body {
 }
 
 .panel {
-    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    /* font-family: "Source Sans Pro", Helvetica, Arial, sans-serif; */
     color: white;
     height: 100%;
     min-width: 100%;
@@ -66,6 +75,24 @@ html, body {
     width: 100%;
     z-index: -100;
 
+}
+
+#aboutUs {
+  text-align: center;
+}
+
+#photoID {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#biosContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 #back1 {
