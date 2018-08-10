@@ -8,14 +8,14 @@ var lat, lon;
 navigator.geolocation.getCurrentPosition(function(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
+    // My Function uses the global variables, but can also just pass in latitude and longitude
     findRestaurant();
-
-  });
+});
 
 
 function findRestaurant(){
     var restaurantName = "Terry Black's";
-    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + restaurantName + "&lat=" + lat + "&lon=" + lon + "&sort=real_distance";
+    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + restaurantName + "&lat=" + lat + "&lon=" + lon// + "&sort=real_distance";
     var restaurantID = "";
     $.ajax({
         url: queryURL,
@@ -24,13 +24,6 @@ function findRestaurant(){
         restaurantID = response.restaurants[0].restaurant.id;
         console.log(response);
         var queryURL2 = "https://developers.zomato.com/api/v2.1/restaurant?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + restaurantID;
-        // console.log(queryURL2);
-        // $.ajax({
-        //     url: queryURL2,
-        //     method: "GET"
-        // }).then(function(response){
-        //     console.log(response);
-        // });
         getRestaurant(queryURL2);
     });
 }
@@ -62,7 +55,7 @@ function getReviews(url){
         url: url,
         method: "GET"
     }).then(function(response){
-        // console.log(response);
+        console.log(response);
         var box = $("#displayBox");
         for(var i = 0; i < 5; i++){
             // console.log(response.user_reviews[i].review.rating);
