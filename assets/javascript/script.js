@@ -1,19 +1,42 @@
-$(document).ready(function(){
-// Google Places API
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=bujumbura&apikey=2c06a535e69ae4772b8caa3ca865dc4e"
+var lat;
+var lng;
 
-// Google Places API Key: AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
 
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-    $(".city").text("Bujumbura");
-    $(".wind").text(response.wind.speed + " mph");
-    $(".humidity").text(response.main.humidity + "%");
-    $(".temp").text((response.main.temp - 273) + " C");
-  })
-
-    $('select').formSelect();
+  }, function () {
+    handleLocationError(true);
   });
+} else {
+  // Browser doesn't support Geolocation
+  handleLocationError(false);
+};
+
+$(document).ready(function () {
+  var userDistance = 20000;
+  var userPrice = 3;
+  var userCuisine = "pizza";
+  var userRating = 4;
+  var choiceList = [];
+
+  // Google Places API
+  var queryURL;
+  var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
+
+  // Google Places API Key: AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto
+  $(document).on("click", "a", function () {
+
+    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+
+    var targetUrl = queryURL;
+
+    $.get(proxyUrl + targetUrl, function(data) {
+      choiceList.push(data.results);
+      console.log(choiceList);
+    });
+  });
+  // $('select').formSelect();
+});
