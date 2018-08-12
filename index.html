@@ -33,31 +33,23 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col s1"></div>
-            <div class="col s10">
+    <div class="container"> 
+
+        <div class="row"></div> <!-- This is just a row that acts as a spacer between the nav and the selections div -->
+        
+        <div class="row" id="selections"> <!-- Selections row -->
+            <div class="col m2"></div>
+            <div class="col m8">
                 <div class="row">
-                    <div class="col s2"></div>
-                    <div class="col s8">
-                    </div>
-                    <div class="col s2"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s2"></div>
-            <div class="col s8">
-                <div class="row">
-                    <div class="input-field col s3">
+                    <div class="input-field col m3">
                         <input placeholder="Any" id="cuisine" type="text" class="validate">
-                        <label for="cuisine_type">Cuisine Type</label>
+                        <label for="cuisine_type">Cuisine</label>
                     </div>
-                    <div class="input-field col s3">
-                        <input placeholder="Current Location" id="distance" type="text" class="validate">
+                    <div class="input-field col m3">
+                        <input placeholder="in miles" id="distance" type="text" class="validate">
                         <label for="distance">Distance</label>
                     </div>
-                    <div class="input-field col s3">
+                    <div class="input-field col m3">
                         <select id="rating">
                             <option value="0">Any</option>
                             <option value="1">1+ Stars </option>
@@ -68,7 +60,7 @@
                         </select>
                         <label>Rating</label>
                     </div>
-                    <div class="input-field col s3">
+                    <div class="input-field col m3">
                         <select id="price">
                             <option value="1">Any</option>
                             <option value="2">$</option>
@@ -80,15 +72,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col s2"></div>
+            <div class="col m2"></div>
         </div>
-        <div class="row">
-            <div class="col s5"></div>
-            <div class="col s2">
-                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5" href="#">
+        <div class="row" align="center"> <!-- Row containing submit button -->
+            <div class="col s12">
+                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5">
                     <i class="material-icons left">restaurant</i>Fork It!</a>
             </div>
-            <div class="col s5"></div>
         </div>
     </div>
 
@@ -102,94 +92,94 @@
                 <div class="backgroundimg" id="back5"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="images/sample-1.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <h5 id="result-images">Restaurant Images</h5>
-                    </div>
-                    <div class="card-action">
-                    </div>
-                </div>
-                <h3 class="header" id="result-name">Restaurant Name</h3>
+    </div>
 
-                <table class="highlight">
-                    <thead>
-                        <tr>
-                            <th data-field="id">Rating</th>
-                            <th data-field="name">Price</th>
-                            <th data-field="name">Website</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td id="result-rating">Rating Data </td>
-                            <td id="result-price">$$$$</td>
-                            <td>
-                                <a href="#" id="result-website-link">Restaurant website</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/sample-1.jpg">
+                    <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                    <h5 id="result-images">Restaurant Images</h5>
+                </div>
+                <div class="card-action">
+                </div>
             </div>
+            <h3 class="header" id="result-name">Restaurant Name</h3>
+
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th data-field="id">Rating</th>
+                        <th data-field="name">Price</th>
+                        <th data-field="name">Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="result-rating">Rating Data </td>
+                        <td id="result-price">$$$$</td>
+                        <td>
+                            <a href="#" id="result-website-link">Restaurant website</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col s6">
-                <div class="card">
-                    <div class="card-content">
-                        <h5 id="result-description">Description</h5>
-                    </div>
-                    <div class="card-action">
-                    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="card">
+                <div class="card-content">
+                    <h5 id="result-description">Description</h5>
                 </div>
-            </div>
-
-            <div class="col s6">
-                <div class="card">
-                    <div class="card-content">
-                        <h5>Google Map</h5>
-                    </div>
-                    <div class="card-action">
-                    </div>
+                <div class="card-action">
                 </div>
             </div>
         </div>
 
-
-        <div class="col s12 m8 offset-m2 l6 offset-l3">
-            <div class="card-panel grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <img src="assets/images/yuna.jpg" alt="" class="circle responsive-img">
-                        <h6>ReviewerName</h6>
-
-                    </div>
-                    <div class="col s10">
-                        <span class="black-text">
-                            <h5>Rating Data</h5>
-                            <h6>Rating Date</h6>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
-                        </span>
-                    </div>
+        <div class="col s6">
+            <div class="card">
+                <div class="card-content">
+                    <h5>Google Map</h5>
+                </div>
+                <div class="card-action">
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <!-- Next and New Criteria Buttons-->
-        <div class="row">
-            <div class="col s6">
-                <a class="waves-effect waves-light btn-small">Next Closest Match</a>
-                <a class="waves-effect waves-light btn-small">New Criteria</a>
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img src="assets/images/yuna.jpg" alt="" class="circle responsive-img">
+                    <h6>ReviewerName</h6>
+
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        <h5>Rating Data</h5>
+                        <h6>Rating Date</h6>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+                    </span>
+                </div>
             </div>
         </div>
+    </div>
 
+
+    <!-- Next and New Criteria Buttons-->
+    <div class="row">
+        <div class="col s6">
+            <a class="waves-effect waves-light btn-small">Next Closest Match</a>
+            <a class="waves-effect waves-light btn-small">New Criteria</a>
+        </div>
     </div>
 
 
