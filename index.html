@@ -8,16 +8,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Cantarell|Pacifico" rel="stylesheet"> 
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="assets/images/icon.png" /> 
-        <!-- Google Icon -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Materialize -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-        <!-- CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cantarell|Pacifico" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon.png" />
+    <!-- Google Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -29,11 +29,13 @@
             </ul>
         </div>
     </nav>
-    <div class="container"> 
+    <div class="container">
 
-        <div class="row"></div> <!-- This is just a row that acts as a spacer between the nav and the selections div -->
-        
-        <div class="row" id="selections"> <!-- Selections row -->
+        <div class="row"></div>
+        <!-- This is just a row that acts as a spacer between the nav and the selections div -->
+
+        <div class="row" id="selections">
+            <!-- Selections row -->
             <div class="col m2"></div>
             <div class="col m8">
                 <div class="row">
@@ -72,7 +74,7 @@
         </div>
 
         <!-- Rsubmit button -->
-        <div class="row center"> 
+        <div class="row center">
             <div class="col s12">
                 <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5" href="#restaurant-details">
                     <i class="material-icons left">restaurant</i>Fork It!</a>
@@ -96,12 +98,14 @@
 
     <!-- Start of row: Restaurant Name and Stats -->
     <div class="row" id="restaurant-details">
-        
+
         <div class="col m2"></div>
 
-        <div class="col m8"> <!-- Center Column -->
+        <div class="col m8">
+            <!-- Center Column -->
 
-            <div class="card"> <!-- Card: Restaurant Image(s)-->
+            <div class="card">
+                <!-- Card: Restaurant Image(s)-->
 
                 <!-- <div class="card-image">
                     <img src="#">
@@ -112,7 +116,8 @@
                     <h5 id="result-images">Restaurant Images</h5>
                 </div>
 
-            </div> <!-- End of Restaurant Image(s) card -->
+            </div>
+            <!-- End of Restaurant Image(s) card -->
 
             <h3 class="header" id="result-name">Restaurant Name</h3>
 
@@ -127,19 +132,24 @@
                 <tbody>
                     <tr>
                         <td id="result-rating">Rating Data </td>
-                        <td id="result-price">$$$$</td>
-                        <td><a href="#" id="result-website-link">Restaurant website</a></td>
+                        <td id="result-price"></td>
+                        <td>
+                            <a href="#" id="result-website-link">Restaurant website</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
 
-        </div> <!-- End of Center Column -->
+        </div>
+        <!-- End of Center Column -->
 
         <div class="col m2"></div>
 
-    </div> <!-- End of row: Restaurant Name and Stats -->
+    </div>
+    <!-- End of row: Restaurant Name and Stats -->
 
-    <div class="row"> <!-- Start of row: Restaurant Description and Map -->
+    <div class="row">
+        <!-- Start of row: Restaurant Description and Map -->
 
         <div class="col s12 m2"></div>
 
@@ -154,16 +164,19 @@
         <div class="col m5">
             <div class="card">
                 <div class="card-content">
-                    <h5>Google Map</h5>
+                    <iframe id="google-map" width="600" height="450" frameborder="0" style="border:0" src=""
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
 
         <div class="col m2"></div>
-        
-    </div> <!-- End of row: Restaurant Description and Map -->
 
-    <div class="row"> <!-- Start of row: Reviews Data-->
+    </div>
+    <!-- End of row: Restaurant Description and Map -->
+
+    <div class="row">
+        <!-- Start of row: Reviews Data-->
 
         <div class="col m2"></div>
 
@@ -185,9 +198,10 @@
 
     </div>
 
-    <div class="row"> <!-- Start of row: Next and Change Criteria Buttons-->
+    <div class="row">
+        <!-- Start of row: Next and Change Criteria Buttons-->
         <div class="col s12 center">
-            <a class="waves-effect waves-light btn-small">Next Match</a>
+            <a id="next-match" class="waves-effect waves-light btn-small">Next Match</a>
             <a class="waves-effect waves-light btn-small" href="#top">Change Criteria</a>
         </div>
     </div>
@@ -204,14 +218,14 @@
             </div>
 
             <div class="col m8"></div>
-        
+
             <div class="col m1 center">
                 <a href="about-us.html">About Us</a>
             </div>
 
             <div class="col s1"></div>
-            
-        </div>        
+
+        </div>
 
     </footer>
 
