@@ -41,6 +41,22 @@ $(document).ready(function () {
   var queryURL;
   var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
+  function displayResults() {
+    //Insert query results onto Restaurant Details page
+    recallChoice = localStorage.getItem("returnChoice");
+    console.log(returnChoice);
+    // $("#result-images").html(returnChoice.photos[0].html_attributions[0]);
+    $("#result-name").text(returnChoice.name);
+    $("#result-rating").text(returnChoice.rating + "/5");
+    for (i = 1; i <= returnChoice.price_level; i++) {
+      $("#result-price").append("$");
+    };
+    // $("#result-website-link").attr("href", (returnChoice);
+    // $("#result-website-link").text((returnChoice.name);
+    $("#result-description").text(returnChoice.types[0]);
+    $("#google-map").attr("src", ("https://www.google.com/maps/embed/v1/place?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&q=place_id:" + returnChoice.place_id));
+  }
+
 
   // Google Places API Key: AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto
   $("#submit-button").on("click", function () {
@@ -59,32 +75,27 @@ $(document).ready(function () {
 
     // Store search results in Firebase
     // db.ref().child("results").set(choiceList);
+
+    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+
+    var targetUrl = queryURL;
+
+    $.get(proxyUrl + targetUrl, function (data) {
+      for (item in data.results) {
+        choiceList.push(data.results[item]);
+      };
+      returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
+      localStorage.setItem("returnChoice", JSON.stringify(returnChoice));
+      localStorage.setItem("choiceList", JSON.stringify(choiceList));
+      displayResults();
+    });
+
+    $(document).on("click", "#next-match", function () {
+      returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
+      displayResults();
+    })
+
   });
-
-  queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&location=" + JSON.parse(localStorage.getItem("lat")) + "," + JSON.parse(localStorage.getItem("lng")) + "&radius=" + JSON.parse(localStorage.getItem("distance")) + "&rankby=prominence&type=restaurant&opennow&maxprice=" + JSON.parse(localStorage.getItem("price")) + "&keyword=" + JSON.parse(localStorage.getItem("cuisine")) + "%" + JSON.parse(localStorage.getItem("rating"));
-
-  var targetUrl = queryURL;
-
-  $.get(proxyUrl + targetUrl, function (data) {
-    for (item in data.results) {
-      choiceList.push(data.results[item]);
-    };
-    returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
-    localStorage.setItem("returnChoice", JSON.stringify(returnChoice));
-    localStorage.setItem("choiceList", JSON.stringify(choiceList));
-  });
-
-  //Insert query results onto Restaurant Details page
-  console.log(localStorage.getItem("returnChoice"));
-  recallChoice = localStorage.getItem("returnChoice");
-  console.log(recallChoice);
-  $("#result-images").html(returnChoice.photos[0].html_attributions[0]);
-  $("#result-name").text(returnChoice.name);
-  $("#result-rating").text(returnChoice.rating);
-  $("#result-price").text("$" * (returnChoice.price_level));
-  // $("#result-website-link").attr("href", (returnChoice);
-  // $("#result-website-link").text((returnChoice.name);
-  $("#result-description").text(returnChoice.type[0]);
 
   $('select').formSelect();
 });
