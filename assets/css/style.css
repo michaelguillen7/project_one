@@ -19,7 +19,11 @@ a #submit-button {
 }
 
 .btn-small {
-  margin: 0 10px 0 10px;
+  margin: 0 10px 10px 10px;
+}
+
+foter {
+  margin-top: 50px;
 }
 
 footer a {
@@ -41,6 +45,11 @@ label {
   font-weight:900;
   text-shadow: 0px 0px 3px #000;
   color: white;
+}
+
+.card .card-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .panel {
