@@ -78,13 +78,13 @@ $(document).ready(function () {
   console.log(localStorage.getItem("returnChoice"));
   recallChoice = localStorage.getItem("returnChoice");
   console.log(recallChoice);
-  $("#result-images").html(recallChoice.photos[0].html_attributions[0]);
-  $("#result-name").text(recallChoice.name);
-  $("#result-rating").text(recallChoice.rating);
-  $("#result-price").text("$" * (recallChoice.price_level));
-  // $("#result-website-link").attr("href", (recallChoice);
-  // $("#result-website-link").text((recallChoice.name);
-  $("#result-description").text(recallChoice.type[0]);
+  $("#result-images").html(returnChoice.photos[0].html_attributions[0]);
+  $("#result-name").text(returnChoice.name);
+  $("#result-rating").text(returnChoice.rating);
+  $("#result-price").text("$" * (returnChoice.price_level));
+  // $("#result-website-link").attr("href", (returnChoice);
+  // $("#result-website-link").text((returnChoice.name);
+  $("#result-description").text(returnChoice.type[0]);
 
   $('select').formSelect();
 });
