@@ -1,66 +1,55 @@
-body {
-  font-family: 'Cantarell', sans-serif;
-}
-
-.nav-wrapper {
-  font-family: 'Pacifico', cursive;
-}
-
-.input-field {
-
-    margin: auto 0;
-    margin-top: 150px;
-};
-
-.bios {
-    position: absolute;
-    float: left;
-    width: 200px;
-    height: 150px;
-    margin: 0;
-    overflow: hidden;
-}
-
-/* .bios img {
-    max-width: 100%;
-    max-height: 100%;
-    border: 0 none;
-} */
-
-.bios h5 {
-    position: relative;
-    display: block;
-    bottom: 20px;
-    width: 250px;
-    padding: 15px;
-    margin: 0 auto;
-    font-weight: 300;
-    line-height: 15px;
-    color: #fff;
-    text-align: center;
-    background: #ee6e73;
-    border-bottom: 0;
-}
-
-input {
-  font-weight:900;
-text-shadow: 0px 0px 3px #000;
-color: white;
-background-color: black;
-opacity: 1;
-}
-
-label {
-  font-weight:900;
-text-shadow: 0px 0px 3px #000;
-color: white;
-
-}
+/* Affects all pages */
 
 html,
 body {
   height: 100%;
   margin: 0;
+}
+
+body {
+    font-family: 'Cantarell', sans-serif;
+  }
+  
+.nav-wrapper {
+  font-family: 'Pacifico', cursive;
+}
+
+a #submit-button {
+  width: 175px;
+}
+
+.btn-small {
+  margin: 0 10px 10px 10px;
+}
+
+foter {
+  margin-top: 50px;
+}
+
+footer a {
+  color: white;
+}
+
+
+/* Affects main index page */
+
+input {
+  font-weight:900;
+  text-shadow: 0px 0px 3px #000;
+  color: white;
+  background-color: black;
+  opacity: 1;
+}
+
+label {
+  font-weight:900;
+  text-shadow: 0px 0px 3px #000;
+  color: white;
+}
+
+.card .card-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .panel {
@@ -91,24 +80,6 @@ body {
   height: 100%;
   width: 100%;
   z-index: -100;
-}
-
-#aboutUs {
-  text-align: center;
-}
-
-#photoID {
-  width: 250px;
-  display: block;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-#biosContainer {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 #back1 {
@@ -251,4 +222,42 @@ body {
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-duration: 20s;
+}
+
+
+/* Affects "About Us" page */
+
+.bio {
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.bio h5 {
+  position: relative;
+  display: block;
+  bottom: 20px;
+  width: 250px;
+  padding: 15px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 15px;
+  color: #fff;
+  text-align: center;
+  background: #26a69a;
+  border-bottom: 0;
+}
+
+.bio-img-wrapper {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: 0 auto;
+  overflow-y: hidden;
+}
+
+#biosContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
