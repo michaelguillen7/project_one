@@ -54,7 +54,7 @@ $(document).ready(function () {
     // $("#result-website-link").attr("href", (returnChoice);
     // $("#result-website-link").text((returnChoice.name);
     $("#result-description").text(returnChoice.types[0]);
-    $("#google-map").attr("src", ("https://www.google.com/maps/embed/v1/place?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&q=place_id:" + returnChoice.place_id));
+    $("#google-map").attr("src", ("https://www.google.com/maps/embed/v1/place?key=AIzaSyCvJGim2sDJ7_V7IHYZOPSSNis3OsPu2pM&q=place_id:" + returnChoice.place_id));
   }
 
 
