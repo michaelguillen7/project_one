@@ -22,7 +22,7 @@
 
 <body>
     <nav id="pageHeader">
-        <div class="nav-wrapper" id="top">
+        <div class="nav-wrapper red" id="top">
             <a href="index.html" class="brand-logo center">
                 <i class="material-icons">restaurant</i>Tender</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -41,11 +41,11 @@
                 <div class="row">
                     <div class="input-field col m3">
                         <input placeholder="Any" id="cuisine" type="text" class="validate">
-                        <label for="cuisine_type">Cuisine</label>
+                        <label id="cuisine-label" for="cuisine_type">Cuisine</label>
                     </div>
                     <div class="input-field col m3">
                         <input placeholder="in miles" id="distance" type="text" class="validate">
-                        <label for="distance">Distance</label>
+                        <label id="distance-label" for="distance">Distance</label>
                     </div>
                     <div class="input-field col m3">
                         <select id="rating">
@@ -56,7 +56,7 @@
                             <option value="4">4+ Stars</option>
                             <option value="5">5 Stars</option>
                         </select>
-                        <label>Rating</label>
+                        <label id="rating-label">Rating</label>
                     </div>
                     <div class="input-field col m3">
                         <select id="price">
@@ -66,7 +66,7 @@
                             <option value="4">$$$</option>
                             <option value="5">$$$$</option>
                         </select>
-                        <label>Cost</label>
+                        <label id="cost-label">Cost</label>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         <!-- Rsubmit button -->
         <div class="row center">
             <div class="col s12">
-                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5" href="#restaurant-details">
+                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5 red" href="#restaurant-details">
                     <i class="material-icons left">restaurant</i>Fork It!</a>
             </div>
         </div>
@@ -197,13 +197,13 @@
     <div class="row">
         <!-- Start of row: Next and Change Criteria Buttons-->
         <div class="col s12 center">
-            <a id="next-match" class="waves-effect waves-light btn-small">Next Match</a>
-            <a id="change-criteria" class="waves-effect waves-light btn-small" href="#top">Change Criteria</a>
+            <a id="next-match" class="waves-effect waves-light btn-small red">Next Match</a>
+            <a id="change-criteria" class="waves-effect waves-light btn-small red" href="#top">Change Criteria</a>
         </div>
     </div>
 
 
-    <footer class="page-footer">
+    <footer class="page-footer red">
 
         <div class="footer-copyright">
 
