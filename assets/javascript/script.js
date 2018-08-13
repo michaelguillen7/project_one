@@ -38,6 +38,72 @@ $(document).ready(function () {
   var recallList = [];
   var recallChoice;
 
+  // Zomato API
+
+  function findRestaurant(name){
+    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + name + "&lat=" + lat + "&lon=" + lng// + "&sort=real_distance";
+    var restaurantID = "";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        restaurantID = response.restaurants[0].restaurant.id;
+        // console.log(response);
+        var queryURL2 = "https://developers.zomato.com/api/v2.1/restaurant?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + restaurantID;
+        getRestaurant(queryURL2);
+    });
+  }
+
+
+  function getRestaurant(url) {
+    $.ajax({
+        url: url,
+        method: "GET"
+    }).then(function(response){
+        $("#result-website-link").attr("href", response.url);
+        var box = $("#reviewBox");
+        var restaurantImg = $("<img>");
+        restaurantImg.attr("alt", "restaurant image");
+        restaurantImg.attr("src", response.featured_image);
+        restaurantImg.addClass("restaurantImage");
+        $("#restaurantImg").append(restaurantImg);
+        console.log(response);
+        var rating = $("<h5>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
+        box.append(name);
+        box.append(rating);
+        box.append($("<h5>").text("Reviews:"));
+
+        var ID = response.id;
+        var nextURL = "https://developers.zomato.com/api/v2.1/reviews?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + ID;
+        getReviews(nextURL);
+    });
+
+  }
+
+  function getReviews(url){
+    $.ajax({
+        url: url,
+        method: "GET"
+    }).then(function(response){
+        // console.log(response);
+        var box = $("#reviewBox");
+        for(var i = 0; i < response.user_reviews.length; i++){
+            // console.log(response.user_reviews[i].review.rating);
+            // console.log(response.user_reviews[i].review.user);
+            var userImage = $("<img>");
+            userImage.attr("src", response.user_reviews[i].review.user.profile_image);
+            userImage.attr("alt", "User profile image");
+            userImage.attr("class", "circle responsive-img");
+            box.append(userImage);
+            box.append($("<h6>").text("Reviewer Name: " + response.user_reviews[i].review.user.name));
+            box.append($("<h7>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
+            box.append($("<p>").text(response.user_reviews[i].review.review_text));
+        }
+    });
+  }
+
+
+
   // Google Places API
   var queryURL;
   var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -57,6 +123,8 @@ $(document).ready(function () {
     // $("#result-website-link").text((returnChoice.name);
     $("#result-description").text(returnChoice.types[0]);
     $("#google-map").attr("src", ("https://www.google.com/maps/embed/v1/place?q=place_id:" + returnChoice.place_id + "&key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4"));
+    // Zomato API call for the reviews
+    findRestaurant(returnChoice.name);
   }
 
 
