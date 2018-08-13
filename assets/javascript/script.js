@@ -62,10 +62,12 @@ $(document).ready(function () {
     }).then(function(response){
         $("#result-website-link").attr("href", response.url);
         var box = $("#reviewBox");
+        box.empty();
         var restaurantImg = $("<img>");
         restaurantImg.attr("alt", "restaurant image");
         restaurantImg.attr("src", response.featured_image);
         restaurantImg.addClass("restaurantImage");
+        $("#restaurantImg").empty();
         $("#restaurantImg").append(restaurantImg);
         console.log(response);
         var rating = $("<h5>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
