@@ -261,3 +261,25 @@ label {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+/* For loading screen */
+.preloader-wrapper {
+  visibility: none;
+  z-index: 5;
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+}
+
+.fuzzy-background {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-color: #ccc;
+}
+
+.visible {
+  visibility: visible;
+}
