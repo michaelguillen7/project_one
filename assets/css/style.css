@@ -302,3 +302,22 @@ input {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+#map-wrapper {
+  height: 450px;
+  margin: 0;
+  padding: 0;
+}
+
+#google-map {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
+  
+  #map-wrapper {
+    width: 100%;
+  }
+}
