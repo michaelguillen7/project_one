@@ -310,6 +310,10 @@ input {
 
 /* Affects "About Us" page */
 
+#header-footer-spacer {
+  height: 75px;
+}
+
 .bio {
     width: 250px;
     margin-bottom: 30px;
@@ -326,7 +330,7 @@ input {
   line-height: 15px;
   color: #fff;
   text-align: center;
-  background: #26a69a;
+  background: #F44336;
   border-bottom: 0;
 }
 

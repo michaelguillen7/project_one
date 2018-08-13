@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -8,24 +8,21 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cantarell|Pacifico" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon.png" />
     <!-- Google Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <!-- Materialize JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
+    <nav id="pageHeader">
+        <div class="nav-wrapper red" id="top">
             <a href="index.html" class="brand-logo center">
                 <i class="material-icons">restaurant</i>Tender</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -34,6 +31,8 @@
     </nav>
 
     <div class="container">
+
+        <div id="header-footer-spacer"></div>
 
         <div class="row" id="aboutUsIntro"> <!-- Row 1: Blurb -->
 
@@ -44,7 +43,7 @@
 
                 <h4 class="center">We're the forkers behind this project.</h4>
 
-                <p>The impetus for this app may have been based on a class project, but we think we've created something pretty cool! So we're just going to take a moment to fluff the egos of our glorious team members, and you can find out a little more about us, too!</p>
+                <p>The impetus for this app may have been based on a class project, but we think we've created something pretty cool! So we're just going to take a moment to put the spotlight on our glorious team members, and you can find out a little more about us, too!</p>
 
             <!-- </div>
             <div class="col m2"></div> -->
@@ -58,12 +57,53 @@
                 <div class="bio">
                     <!-- Image here -->
                     <div class="bio-img-wrapper">
-                        <img src="assets/images/Mandie.JPG" alt="Mandie Kramer" width="250px">
+                        <img src="assets/images/Selma-Delgado.jpg" alt="Selma Delgado" width="250px">
                     </div>
                     <!-- Name here -->
-                    <h5>Mandie Kramer</h5>
+                    <h5>Selma Delgado</h5>
                     <!-- Short description of you with whatever you want people to know about you -->
-                    <div class="bioText">I am really into this web development stuff. Blah blah blah. (I'll write something real in a minute.)
+                    <div class="bioText">Selma Delgado is an aspiring web developer currently attending the University of Texas in Austin.  Check out her work here: <a href="https://github.com/selmadelgado" target="_blank">https://github.com/selmadelgado</a>
+                            
+                    <p>When she is not traveling abroad discovering new destinations, you will find her cooking amazing dishes with her husband.   Her favorite dish is Ahi Tuna with a Stuffed Mushroom Coulis Sauce.
+                    </div>
+                </div>
+
+                <div class="bio">
+                    <!-- Image here -->
+                    <div class="bio-img-wrapper">
+                        <img src="assets/images/E2.jpg" alt="Eric Galassi" width="250px">
+                    </div>
+                    <!-- Name here -->
+                    <h5>Eric Galassi</h5>
+                    <!-- Short description of you with whatever you want people to know about you -->
+                    <div class="bioText">Eric Galassi is a veteran of the US Navy.  His background also includes being a former biologist, a mortgage loan officer, and a high school teacher.  Originally from the San Francisco Bay Area, he moved to Texas after separating from the Navy.  For his undergraduate degree, he attended the University of California, San Diego, and received his master’s degree from San Francisco State University.  His hobbies include archery, baking, and programming websites in his spare time.
+
+                    <p>If Eric could eat one food for the rest of his life, it would be pizza.
+                    </div>
+                </div>
+
+                <div class="bio">
+                    <!-- Image here -->
+                    <div class="bio-img-wrapper">
+                        <img src="assets/images/Michael-Guillen.jpg" alt="Michael Guillen" width="250px">
+                    </div>
+                    <!-- Name here -->
+                    <h5>Michael Guillen</h5>
+                    <!-- Short description of you with whatever you want people to know about you -->
+                    <div class="bioText">Michael Guillen is a graduate from the University of Texas at Austin and now attends the UT Austin Bootcamp. He’s passionate about front end development, basketball, and music. If he could eat any type of cuisine for the rest of his life, it would be Mexican.
+                    </div>
+                </div>
+
+                <div class="bio">
+                    <!-- Image here -->
+                    <div class="bio-img-wrapper">
+                        <img src="assets/images/John-Kim.jpg" alt="John Kim" width="250px">
+                    </div>
+                    <!-- Name here -->
+                    <h5>John Kim</h5>
+                    <!-- Short description of you with whatever you want people to know about you -->
+                    <div class="bioText">John Hyunmin Kim is a University of Michigan graduate with a major in Biophysics and a minor in Computer Science. He is an aspiring web developer. Check out his work here: <a href="https://github.com/whoisjohnkim" target="_blank">https://github.com/whoisjohnkim</a>
+                    <p>In his free time he enjoys cooking and eating new foods, spending time outside and playing sports including tennis and basketball, and expressing his creativity whether through music or dance. If John could eat one food for the rest of his life, it would be pork belly cooked with kimchi with rice.
                     </div>
                 </div>
 
@@ -75,50 +115,43 @@
                     <!-- Name here -->
                     <h5>Mandie Kramer</h5>
                     <!-- Short description of you with whatever you want people to know about you -->
-                    <div class="bioText">I am really into this web development stuff. Blah blah blah. (I'll write something real in a minute.)
+                    <div class="bioText">Mandie Kramer is currently a student attending the UT Austin Coding Boot Camp. The long-time dream of bringing her app ideas to life is finally coming true! (And she promises to no longer abuse Excel ... much.) 
+                    
+                    <p>Favorite food? Raw oysters with horseradish, cocktail sauce, and lemon juice! 
+                        
+                    <p>Learn more about Mandie on <a href="https://impunityjainne.github.io/Bootstrap-Portfolio/portfolio.html" target="_blank">her portfolio page</a>.
                     </div>
                 </div>
 
-                <div class="bio">
-                    <!-- Image here -->
-                    <div class="bio-img-wrapper">
-                        <img src="assets/images/Mandie.JPG" alt="Mandie Kramer" width="250px">
-                    </div>
-                    <!-- Name here -->
-                    <h5>Mandie Kramer</h5>
-                    <!-- Short description of you with whatever you want people to know about you -->
-                    <div class="bioText">I am really into this web development stuff. Blah blah blah. (I'll write something real in a minute.)
-                    </div>
-                </div>
-
-                <div class="bio">
-                    <!-- Image here -->
-                    <div class="bio-img-wrapper">
-                        <img src="assets/images/Mandie.JPG" alt="Mandie Kramer" width="250px">
-                    </div>
-                    <!-- Name here -->
-                    <h5>Mandie Kramer</h5>
-                    <!-- Short description of you with whatever you want people to know about you -->
-                    <div class="bioText">I am really into this web development stuff. Blah blah blah. (I'll write something real in a minute.)
-                    </div>
-                </div>
-
-                <div class="bio">
-                    <!-- Image here -->
-                    <div class="bio-img-wrapper">
-                        <img src="assets/images/Mandie.JPG" alt="Mandie Kramer" width="250px">
-                    </div>
-                    <!-- Name here -->
-                    <h5>Mandie Kramer</h5>
-                    <!-- Short description of you with whatever you want people to know about you -->
-                    <div class="bioText">I am really into this web development stuff. Blah blah blah. (I'll write something real in a minute.)
-                    </div>
-                </div>
             </div> <!-- End of bios container -->
 
         </div> <!-- End of row 2 -->
 
+        <div id="header-footer-spacer"></div>
+
     </div>
+
+    <footer class="page-footer red">
+
+        <div class="footer-copyright">
+
+            <div class="col s1"></div>
+
+            <div class="col m1">
+                © 2018 Tenderellas
+            </div>
+
+            <div class="col m8"></div>
+
+            <div class="col m1 center">
+                <a href="about-us.html">About Us</a>
+            </div>
+
+            <div class="col s1"></div>
+
+        </div>
+
+    </footer>
 
 
     <!-- JS link -->
