@@ -1,5 +1,21 @@
 /* Affects all pages */
 
+.page-footer, #pageHeader {
+  position: fixed;
+  z-index: 5;
+  right: 0;
+  left: 0;
+}
+
+.page-footer {
+  bottom: 0;
+}
+
+#pageHeader {
+  top: 0;
+}
+
+
 html,
 body {
   height: 100%;
