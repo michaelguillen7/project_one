@@ -41,10 +41,32 @@ input {
   opacity: 1;
 }
 
-label {
-  font-weight:900;
-  text-shadow: 0px 0px 3px #000;
+#cuisine-label {
+  font-weight: bold;
+  font-size: 18px;
   color: white;
+  text-shadow: 20;
+}
+
+#rating-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  text-shadow: 20;
+}
+
+#cost-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  text-shadow: 20;
+}
+
+#distance-label {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  text-shadow: 20;
 }
 
 .card .card-content {
@@ -87,7 +109,10 @@ label {
 }
 
 #back1 {
-  background: url("https://wallpapertag.com/wallpaper/middle/b/b/e/376552-food-wallpaper-2560x1600-for-iphone-5s.jpg#.W23e0P2A4x8.link") no-repeat center fixed;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ), url("https://wallpapertag.com/wallpaper/middle/b/b/e/376552-food-wallpaper-2560x1600-for-iphone-5s.jpg#.W23e0P2A4x8.link") no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -101,7 +126,10 @@ label {
 }
 
 #back2 {
-  background: url("https://cdn1.vox-cdn.com/uploads/chorus_asset/file/9250011/Arroz_negro_con_Carabineros_Calamares_y_sepia.jpg") no-repeat center fixed;
+  background:linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ), url("https://cdn1.vox-cdn.com/uploads/chorus_asset/file/9250011/Arroz_negro_con_Carabineros_Calamares_y_sepia.jpg") no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -115,7 +143,10 @@ label {
 }
 
 #back3 {
-  background: url("https://cdn.vox-cdn.com/thumbor/KWS-fRJXRM0bf5Rsgir3xn3m3vA=/1600x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9250017/Tuetano_con_Carrileras.jpg") no-repeat center fixed;
+  background:linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ), url("https://cdn.vox-cdn.com/thumbor/KWS-fRJXRM0bf5Rsgir3xn3m3vA=/1600x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9250017/Tuetano_con_Carrileras.jpg") no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -129,7 +160,10 @@ label {
 }
 
 #back4 {
-  background: url("http://monishchandan.com/wp-content/uploads/2016/03/high-resolution-food-1920x1200-wallpaper337475.jpg") no-repeat center fixed;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),url("http://monishchandan.com/wp-content/uploads/2016/03/high-resolution-food-1920x1200-wallpaper337475.jpg") no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -143,7 +177,10 @@ label {
 }
 
 #back5 {
-  background: url("https://cdn.vox-cdn.com/thumbor/N06d17R9uialSYq2sxaLPFftGTk=/1600x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9250005/Gambas_de_ajillio.jpg") no-repeat center fixed;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),url("https://cdn.vox-cdn.com/thumbor/N06d17R9uialSYq2sxaLPFftGTk=/1600x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9250005/Gambas_de_ajillio.jpg") no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
