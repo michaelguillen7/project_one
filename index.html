@@ -8,59 +8,46 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
-<<<<<<< HEAD
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cantarell|Pacifico" rel="stylesheet">
-=======
-
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="assets/images/icon.png"/>
->>>>>>> 8cc3d2f98c57ac71fa60f48646c7017b4684390a
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon.png" />
     <!-- Google Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-
-
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">
+        <div class="nav-wrapper" id="top">
+            <a href="index.html" class="brand-logo center">
                 <i class="material-icons">restaurant</i>Tender</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
             </ul>
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col s1"></div>
-            <div class="col s10">
+
+        <div class="row"></div>
+        <!-- This is just a row that acts as a spacer between the nav and the selections div -->
+
+        <div class="row" id="selections">
+            <!-- Selections row -->
+            <div class="col m2"></div>
+            <div class="col m8">
                 <div class="row">
-                    <div class="col s2"></div>
-                    <div class="col s8">
-                    </div>
-                    <div class="col s2"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s2"></div>
-            <div class="col s8">
-                <div class="row">
-                    <div class="input-field col s3">
+                    <div class="input-field col m3">
                         <input placeholder="Any" id="cuisine" type="text" class="validate">
-                        <label for="cuisine_type">Cuisine Type</label>
+                        <label for="cuisine_type">Cuisine</label>
                     </div>
-                    <div class="input-field col s3">
-                        <input placeholder="Current Location" id="distance" type="text" class="validate">
+                    <div class="input-field col m3">
+                        <input placeholder="in miles" id="distance" type="text" class="validate">
                         <label for="distance">Distance</label>
                     </div>
-                    <div class="input-field col s3">
+                    <div class="input-field col m3">
                         <select id="rating">
                             <option value="0">Any</option>
                             <option value="1">1+ Stars </option>
@@ -71,7 +58,7 @@
                         </select>
                         <label>Rating</label>
                     </div>
-                    <div class="input-field col s3">
+                    <div class="input-field col m3">
                         <select id="price">
                             <option value="1">Any</option>
                             <option value="2">$</option>
@@ -83,18 +70,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col s2"></div>
+            <div class="col m2"></div>
         </div>
-        <div class="row">
-            <div class="col s5"></div>
-            <div class="col s2">
-                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5" href="restaurant-details.html">
+
+        <!-- Rsubmit button -->
+        <div class="row center">
+            <div class="col s12">
+                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5" href="#restaurant-details">
                     <i class="material-icons left">restaurant</i>Fork It!</a>
             </div>
-            <div class="col s5"></div>
         </div>
+
     </div>
 
+    <!-- related to the rotating background image -->
     <div id="home" class="panel">
         <div class="inner">
             <div id="backgroundchange">
@@ -106,6 +95,139 @@
             </div>
         </div>
     </div>
+
+    <!-- Start of row: Restaurant Name and Stats -->
+    <div class="row" id="restaurant-details">
+
+        <div class="col m2"></div>
+
+        <div class="col m8">
+            <!-- Center Column -->
+
+            <div class="card">
+                <!-- Card: Restaurant Image(s)-->
+
+                <!-- <div class="card-image">
+                    <img src="#">
+                    <span class="card-title">Card Title</span>
+                </div> -->
+
+                <div class="card-content">
+                    <h5 id="result-images">Restaurant Images</h5>
+                </div>
+
+            </div>
+            <!-- End of Restaurant Image(s) card -->
+
+            <h3 class="header" id="result-name">Restaurant Name</h3>
+
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th data-field="id">Rating</th>
+                        <th data-field="name">Price</th>
+                        <th data-field="name">Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="result-rating">Rating Data </td>
+                        <td id="result-price"></td>
+                        <td>
+                            <a href="#" id="result-website-link">Restaurant website</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- End of Center Column -->
+
+        <div class="col m2"></div>
+
+    </div>
+    <!-- End of row: Restaurant Name and Stats -->
+
+    <div class="row">
+        <!-- Start of row: Restaurant Description and Map -->
+
+        <div class="col s12 m2"></div>
+
+        <div class="col m3">
+            <div class="card">
+                <div class="card-content">
+                    <h5 id="result-description">Description Placeholder: Latin Cuisine, Casual, Etc etc etc.</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col m5">
+            <div class="card">
+                <div class="card-content">
+                    <iframe id="google-map" width="600" height="450" frameborder="0" style="border:0" src=""
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="col m2"></div>
+
+    </div>
+    <!-- End of row: Restaurant Description and Map -->
+
+    <div class="row">
+        <!-- Start of row: Reviews Data-->
+
+        <div class="col m2"></div>
+
+        <div class="col s12 m2" align="center">
+            <img src="assets/images/yuna.jpg" alt="" class="circle responsive-img">
+            <h6>ReviewerName</h6>
+        </div>
+
+        <div class="col m6">
+            <span class="black-text">
+                <h5>Review Data</h5>
+                <h6>Review Date</h6>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+            </span>
+        </div>
+
+        <div class="col m2"></div>
+
+    </div>
+
+    <div class="row">
+        <!-- Start of row: Next and Change Criteria Buttons-->
+        <div class="col s12 center">
+            <a id="next-match" class="waves-effect waves-light btn-small">Next Match</a>
+            <a id="change-criteria" class="waves-effect waves-light btn-small" href="#top">Change Criteria</a>
+        </div>
+    </div>
+
+
+    <footer class="page-footer">
+
+        <div class="footer-copyright">
+
+            <div class="col s1"></div>
+
+            <div class="col m1">
+                © 2018 Team 2
+            </div>
+
+            <div class="col m8"></div>
+
+            <div class="col m1 center">
+                <a href="about-us.html">About Us</a>
+            </div>
+
+            <div class="col s1"></div>
+
+        </div>
+
+    </footer>
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,17 +1,17 @@
 $(document).ready(function () {
 
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCvJGim2sDJ7_V7IHYZOPSSNis3OsPu2pM",
-    authDomain: "tender-1533827992506.firebaseapp.com",
-    databaseURL: "https://tender-1533827992506.firebaseio.com",
-    projectId: "tender-1533827992506",
-    storageBucket: "tender-1533827992506.appspot.com",
-    messagingSenderId: "647175454840"
-  };
-  firebase.initializeApp(config);
+  // var config = {
+  //   apiKey: "AIzaSyCvJGim2sDJ7_V7IHYZOPSSNis3OsPu2pM",
+  //   authDomain: "tender-1533827992506.firebaseapp.com",
+  //   databaseURL: "https://tender-1533827992506.firebaseio.com",
+  //   projectId: "tender-1533827992506",
+  //   storageBucket: "tender-1533827992506.appspot.com",
+  //   messagingSenderId: "647175454840"
+  // };
+  // firebase.initializeApp(config);
 
-  var db = firebase.database();
+  // var db = firebase.database();
   var lat;
   var lng;
 
@@ -34,10 +34,30 @@ $(document).ready(function () {
   var userRating;
   var choiceList = [];
   var returnChoice;
+  var randomIndex;
+  var recallList = [];
+  var recallChoice;
 
   // Google Places API
   var queryURL;
   var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
+  function displayResults() {
+    //Insert query results onto Restaurant Details page
+    recallChoice = localStorage.getItem("returnChoice");
+    console.log(returnChoice);
+    // $("#result-images").html(returnChoice.photos[0].html_attributions[0]);
+    $("#result-name").text(returnChoice.name);
+    $("#result-rating").text(returnChoice.rating + "/5");
+    $("#result-price").empty();
+    for (i = 1; i <= returnChoice.price_level; i++) {
+      $("#result-price").append("$");
+    };
+    // $("#result-website-link").attr("href", (returnChoice);
+    // $("#result-website-link").text((returnChoice.name);
+    $("#result-description").text(returnChoice.types[0]);
+    $("#google-map").attr("src", ("https://www.google.com/maps/embed/v1/place?q=place_id:" + returnChoice.place_id + "&key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4"));
+  }
 
 
   // Google Places API Key: AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto
@@ -48,7 +68,17 @@ $(document).ready(function () {
     userRating = $("#rating").val();
     userPrice = $("#price").val();
 
-    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+    localStorage.setItem("cuisine", JSON.stringify(userCuisine));
+    localStorage.setItem("distance", JSON.stringify(userDistance));
+    localStorage.setItem("rating", JSON.stringify(userRating));
+    localStorage.setItem("price", JSON.stringify(userPrice));
+    localStorage.setItem("lat", JSON.stringify(lat));
+    localStorage.setItem("lng", JSON.stringify(lng));
+
+    // Store search results in Firebase
+    // db.ref().child("results").set(choiceList);
+
+    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
 
     var targetUrl = queryURL;
 
@@ -56,21 +86,23 @@ $(document).ready(function () {
       for (item in data.results) {
         choiceList.push(data.results[item]);
       };
-      returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
-      console.log(returnChoice);      
+      randomIndex = Math.floor(Math.random() * choiceList.length);
+      returnChoice = choiceList[randomIndex];
+      choiceList.splice(randomIndex, 1);
+      localStorage.setItem("returnChoice", JSON.stringify(returnChoice));
+      localStorage.setItem("choiceList", JSON.stringify(choiceList));
+      displayResults();
     });
 
-    // Store search results in Firebase
-    // db.ref().child("results").set(choiceList);
+    $(document).on("click", "#next-match", function () {
+      returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
+      displayResults();
+    });
 
-    //Insert query results onto Restaurant Details page
-    $("#result-images").html(returnChoice.photos[0].html_attributions[0]);
-    $("#result-name").text(returnChoice.name);
-    $("#result-rating").text(returnChoice.rating);
-    $("#result-price").text("$" * returnChoice.price_level);
-    // $("#result-website-link").attr("href", returnChoice);
-    // $("#result-website-link").text(returnChoice.name);
-    $("#result-description").text(returnChoice.type[0]);
+    $(document).on("click", "#change-criteria", function () {
+      choiceList = [];
+    })
+
   });
 
   $('select').formSelect();
