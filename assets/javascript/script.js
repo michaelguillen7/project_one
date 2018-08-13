@@ -30,7 +30,7 @@ $(document).ready(function () {
 
   var userDistance;
   var userPrice;
-  var userCuisine;
+  var userCuisine = "food";
   var userRating;
   var choiceList = [];
   var returnChoice;
@@ -41,7 +41,8 @@ $(document).ready(function () {
   // Zomato API
 
   function findRestaurant(name){
-    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + name + "&lat=" + lat + "&lon=" + lng// + "&sort=real_distance";
+    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + name + "&lat=" + lat + "&lon=" + lng;
+    // + "&sort=real_distance";
     var restaurantID = "";
     $.ajax({
         url: queryURL,
@@ -114,10 +115,12 @@ $(document).ready(function () {
 
 
   // Google Places API
-  var queryURL;
-  var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  var queryURL3;
+  var proxyUrl = 'https://cors-ut-bootcamp.herokuapp.com/';
 
   function displayResults() {
+    $("body:not('#loading')").removeClass("fuzzy-background");
+    $("#loading").removeClass("visible");
     //Insert query results onto Restaurant Details page
     recallChoice = localStorage.getItem("returnChoice");
     console.log(returnChoice);
@@ -137,13 +140,20 @@ $(document).ready(function () {
   }
 
 
-  // Google Places API Key: AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto
+  // Google Places API Key: AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk
   $("#submit-button").on("click", function () {
 
     userCuisine = $("#cuisine").val();
-    userDistance = (parseInt($("#distance").val()) * 1609.344);
+    if ($("#distance").val() > 0) {
+      userDistance = (parseInt($("#distance").val()) * 1609.344);
+    } else {
+      userDistance = 16093.44;
+    }
     userRating = $("#rating").val();
     userPrice = $("#price").val();
+
+    $("body:not('#loading')").addClass("fuzzy-background");
+    $("#loading").addClass("visible");
 
     localStorage.setItem("cuisine", JSON.stringify(userCuisine));
     localStorage.setItem("distance", JSON.stringify(userDistance));
@@ -155,11 +165,12 @@ $(document).ready(function () {
     // Store search results in Firebase
     // db.ref().child("results").set(choiceList);
 
-    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow=true&maxprice=" + userPrice + "&keyword=" + userCuisine + "&rating=" + userRating;
 
-    var targetUrl = queryURL;
+    var targetUrl = queryURL3;
 
     $.get(proxyUrl + targetUrl, function (data) {
+      console.log(data);
       for (item in data.results) {
         choiceList.push(data.results[item]);
       };
