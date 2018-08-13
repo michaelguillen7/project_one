@@ -74,6 +74,9 @@ input {
   opacity: 1;
 }
 
+option {
+  color: red;
+}
 
 
 #cuisine-label {
