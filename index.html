@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Project 1</title>
+    <title>Tender</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
@@ -22,7 +22,7 @@
 
 <body>
     <nav id="pageHeader">
-        <div class="nav-wrapper red" id="top">
+        <div class="nav-wrapper red darken-2" id="top">
             <a href="index.html" class="brand-logo center">
                 <i class="material-icons">restaurant</i>Tender</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -42,11 +42,11 @@
             <div class="col m8">
                 <div class="row">
                     <div class="input-field col m3">
-                        <input placeholder="Any" id="cuisine" type="text" class="validate">
+                        <input placeholder="Any" id="cuisine" type="text" class="validate red-text">
                         <label id="cuisine-label" for="cuisine_type">Cuisine</label>
                     </div>
                     <div class="input-field col m3">
-                        <input placeholder="in miles" id="distance" type="text" class="validate">
+                        <input placeholder="In Miles" id="distance" type="text" class="validate red-text">
                         <label id="distance-label" for="distance">Distance</label>
                     </div>
                     <div class="input-field col m3">
@@ -75,10 +75,10 @@
             <div class="col m2"></div>
         </div>
 
-        <!-- Rsubmit button -->
+        <!-- Resubmit button -->
         <div class="row center">
             <div class="col s12">
-                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5 red" href="#restaurant-details">
+                <a id="submit-button" class="waves-effect waves-light btn-large z-depth-5 red darken-1" href="#restaurant-details">
                     <i class="material-icons left">restaurant</i>Fork It!</a>
             </div>
         </div>
@@ -129,6 +129,50 @@
                 </tbody>
             </table>
 
+            <!-- Start of row: Loading icon for results -->
+            <div id="loading" class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-red">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-yellow">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-green">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            <!-- End of row: Loading icon for results -->
+
         </div>
         <!-- End of Center Column -->
 
@@ -163,23 +207,24 @@
         <div class="row">
             <div class="col m2"></div>
             <div class="col m8">
-                <a id="next-match" class="waves-effect waves-light btn-small red">Next Match</a>
-                <a id="change-criteria" class="waves-effect waves-light btn-small red" href="#top">Change Criteria</a>
+                <a id="next-match" class="waves-effect waves-light btn-small red darken-1">Next Match</a>
+                <a id="change-criteria" class="waves-effect waves-light btn-small red darken-1" href="#top">Change Criteria</a>
             </div>
             <div class="col m2"></div>
         </div>
         <div class="card">
             <!-- Card: Restaurant Image(s)-->
 
-            <!-- <div class="card-image">
+                <!-- <div class="card-image">
                 <img src="#">
                 <span class="card-title">Card Title</span>
             </div> -->
 
-            <div class="card-content" id="restaurantImg">
-                <!-- <h5 id="result-images">Restaurant Images</h5> -->
-            </div>
+                <div class="card-content" id="restaurantImg">
+                    <!-- <h5 id="result-images">Restaurant Images</h5> -->
+                </div>
 
+            </div>
         </div>
 
     </div>
@@ -210,7 +255,7 @@
 
     <div id="footerSpacing"></div>
 
-    <footer class="page-footer red">
+    <footer class="page-footer red darken-2">
 
         <div class="footer-copyright">
 
