@@ -110,8 +110,8 @@ $(document).ready(function () {
   var proxyUrl = 'https://cors-ut-bootcamp.herokuapp.com/';
 
   function displayResults() {
-    $("body").removeClass("fuzzy-background");
-    $(".preloader-wrapper").removeClass("visible");
+    $("body:not('#loading')").removeClass("fuzzy-background");
+    $("#loading").removeClass("visible");
     //Insert query results onto Restaurant Details page
     recallChoice = localStorage.getItem("returnChoice");
     console.log(returnChoice);
@@ -135,17 +135,16 @@ $(document).ready(function () {
   $("#submit-button").on("click", function () {
 
     userCuisine = $("#cuisine").val();
-    console.log(userCuisine);
-    if (!userDistance) {
-      userDistance = 10;
-    } else {
+    if ($("#distance").val() > 0) {
       userDistance = (parseInt($("#distance").val()) * 1609.344);
+    } else {
+      userDistance = 16093.44;
     }
     userRating = $("#rating").val();
     userPrice = $("#price").val();
 
-    $("body").addClass("fuzzy-background");
-    $(".preloader-wrapper").addClass("visible");
+    $("body:not('#loading')").addClass("fuzzy-background");
+    $("#loading").addClass("visible");
 
     localStorage.setItem("cuisine", JSON.stringify(userCuisine));
     localStorage.setItem("distance", JSON.stringify(userDistance));
@@ -157,7 +156,7 @@ $(document).ready(function () {
     // Store search results in Firebase
     // db.ref().child("results").set(choiceList);
 
-    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow=true&maxprice=" + userPrice + "&keyword=" + userCuisine + "&rating=" + userRating;
 
     var targetUrl = queryURL3;
 

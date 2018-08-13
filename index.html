@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -104,22 +104,12 @@
         <div class="col m8">
             <!-- Center Column -->
 
-            <div class="card">
-                <!-- Card: Restaurant Image(s)-->
-
-                <!-- <div class="card-image">
-                    <img src="#">
-                    <span class="card-title">Card Title</span>
-                </div> -->
-
-                <div class="card-content" id="restaurantImg">
-                    <!-- <h5 id="result-images">Restaurant Images</h5> -->
-                </div>
-
-            </div>
             <!-- End of Restaurant Image(s) card -->
 
-            <h3 class="header" id="result-name">Restaurant Name</h3>
+            <h3 class="header" id="result-name">Restaurant Name
+                <a id="next-match" class="waves-effect waves-light btn-small red">Next Match</a>
+                <a id="change-criteria" class="waves-effect waves-light btn-small red" href="#top">Change Criteria</a>
+            </h3>
 
             <table class="highlight">
                 <thead>
@@ -139,6 +129,50 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- Start of row: Loading icon for results -->
+            <div id="loading" class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-red">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-yellow">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-green">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            <!-- End of row: Loading icon for results -->
 
         </div>
         <!-- End of Center Column -->
@@ -160,11 +194,26 @@
                 </div>
             </div>
         </div> -->
-
-        <div class="col m8">
+        <div class="col m4">
             <div class="card">
-                <div class="card-content">
-                    <iframe id="google-map" width="600" height="450" frameborder="0" style="border:0" src="" allowfullscreen></iframe>
+                <!-- Card: Restaurant Image(s)-->
+
+                <!-- <div class="card-image">
+                <img src="#">
+                <span class="card-title">Card Title</span>
+            </div> -->
+
+                <div class="card-content" id="restaurantImg">
+                    <!-- <h5 id="result-images">Restaurant Images</h5> -->
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col m4">
+            <div class="card">
+                <div class="card-content" id="map-wrapper">
+                    <iframe id="google-map" height="450" frameborder="0" style="border:0" src="" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -193,22 +242,6 @@
 
     </div>
 
-    <!-- Start of row: Loading icon for results -->
-    <div class=“preloader-wrapper big active”>
-        <div class=“spinner-layer spinner-blue”>
-            <div class=“circle-clipper left”>
-                <div class=“circle”></div>
-            </div>
-            <div class=“gap-patch”>
-                <div class=“circle”></div>
-            </div>
-            <div class=“circle-clipper right”>
-                <div class=“circle”></div>
-            </div>
-        </div>
-    </div>
-    <!-- End of row: Loading icon for results -->
-
     <div class="row">
         <!-- Start of row: Next and Change Criteria Buttons-->
         <div class="col s12 center">
@@ -225,7 +258,7 @@
             <div class="col s1"></div>
 
             <div class="col m1">
-                © 2018 Team 2
+                © 2018 Tenderellas
             </div>
 
             <div class="col m8"></div>

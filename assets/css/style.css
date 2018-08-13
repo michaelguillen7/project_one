@@ -57,6 +57,15 @@ input {
   opacity: 1;
 }
 
+#change-criteria {
+  float: right;
+}
+
+#next-match {
+  float: right;
+}
+
+
 #cuisine-label {
   font-weight: bold;
   font-size: 18px;
@@ -320,12 +329,11 @@ input {
 }
 
 /* For loading screen */
-.preloader-wrapper {
-  visibility: none;
-  z-index: 5;
-  position: absolute;
-  bottom: 40%;
-  left: 50%;
+#loading {
+  visibility: hidden;
+  position: fixed;
+  top: 40%;
+  left: 47%;
 }
 
 .fuzzy-background {
@@ -334,9 +342,28 @@ input {
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
-  background-color: #ccc;
 }
 
 .visible {
-  visibility: visible;
+  visibility: visible!;
+  z-index: 5!;
+}
+
+#map-wrapper {
+  height: 450px;
+  margin: 0;
+  padding: 0;
+}
+
+#google-map {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
+  
+  #map-wrapper {
+    width: 100%;
+  }
 }
