@@ -41,7 +41,8 @@ $(document).ready(function () {
   // Zomato API
 
   function findRestaurant(name){
-    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + name + "&lat=" + lat + "&lon=" + lng// + "&sort=real_distance";
+    var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + name + "&lat=" + lat + "&lon=" + lng;
+    // + "&sort=real_distance";
     var restaurantID = "";
     $.ajax({
         url: queryURL,
@@ -105,7 +106,7 @@ $(document).ready(function () {
 
 
   // Google Places API
-  var queryURL;
+  var queryURL3;
   var proxyUrl = 'https://cors-ut-bootcamp.herokuapp.com/';
 
   function displayResults() {
@@ -130,10 +131,11 @@ $(document).ready(function () {
   }
 
 
-  // Google Places API Key: AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto
+  // Google Places API Key: AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4
   $("#submit-button").on("click", function () {
 
     userCuisine = $("#cuisine").val();
+    console.log(userCuisine);
     if (!userDistance) {
       userDistance = 10;
     } else {
@@ -155,12 +157,11 @@ $(document).ready(function () {
     // Store search results in Firebase
     // db.ref().child("results").set(choiceList);
 
-    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
 
-    var targetUrl = queryURL;
+    var targetUrl = queryURL3;
 
     $.get(proxyUrl + targetUrl, function (data) {
-      console.log(data)
       for (item in data.results) {
         choiceList.push(data.results[item]);
       };
