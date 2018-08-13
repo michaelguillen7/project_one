@@ -1,4 +1,21 @@
 /* Affects all pages */
+#mainSpacing{
+  height: 40%;
+}
+
+@media only screen and (max-width: 768px) {
+  #mainSpacing{
+    height: 20%;
+  }
+}
+
+#footerSpacing {
+  height: 150px;
+}
+
+#restaurant-details {
+  padding-top: 80px;
+}
 
 .page-footer, #pageHeader {
   position: fixed;
@@ -361,8 +378,8 @@ input {
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-  
-  
+
+
   #map-wrapper {
     width: 100%;
   }

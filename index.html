@@ -29,6 +29,8 @@
             </ul>
         </div>
     </nav>
+
+    <div id="mainSpacing"></div>
     <div class="container">
 
         <div class="row"></div>
@@ -106,10 +108,7 @@
 
             <!-- End of Restaurant Image(s) card -->
 
-            <h3 class="header" id="result-name">Restaurant Name
-                <a id="next-match" class="waves-effect waves-light btn-small red">Next Match</a>
-                <a id="change-criteria" class="waves-effect waves-light btn-small red" href="#top">Change Criteria</a>
-            </h3>
+            <h3 class="header" id="result-name">Restaurant Name</h3>
 
             <table class="highlight">
                 <thead>
@@ -196,7 +195,25 @@
         </div> -->
         <div class="col m4">
             <div class="card">
-                <!-- Card: Restaurant Image(s)-->
+                <div class="card-content" id="map-wrapper">
+                    <iframe id="google-map" height="450" frameborder="0" style="border:0" src=""
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col m2"></div> -->
+    <div class="col m4">
+        <div class="row">
+            <div class="col m2"></div>
+            <div class="col m8">
+                <a id="next-match" class="waves-effect waves-light btn-small red">Next Match</a>
+                <a id="change-criteria" class="waves-effect waves-light btn-small red" href="#top">Change Criteria</a>
+            </div>
+            <div class="col m2"></div>
+        </div>
+        <div class="card">
+            <!-- Card: Restaurant Image(s)-->
 
                 <!-- <div class="card-image">
                 <img src="#">
@@ -210,15 +227,9 @@
             </div>
         </div>
 
-        <div class="col m4">
-            <div class="card">
-                <div class="card-content" id="map-wrapper">
-                    <iframe id="google-map" height="450" frameborder="0" style="border:0" src="" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <div class="col m2"></div>
+
 
     </div>
     <!-- End of row: Restaurant Description and Map -->
@@ -242,14 +253,7 @@
 
     </div>
 
-    <div class="row">
-        <!-- Start of row: Next and Change Criteria Buttons-->
-        <div class="col s12 center">
-            <a id="next-match" class="waves-effect waves-light btn-small red">Next Match</a>
-            <a id="change-criteria" class="waves-effect waves-light btn-small red" href="#top">Change Criteria</a>
-        </div>
-    </div>
-
+    <div id="footerSpacing"></div>
 
     <footer class="page-footer red">
 
