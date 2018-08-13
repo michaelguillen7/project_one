@@ -82,6 +82,10 @@ label {
   z-index: -100;
 }
 
+.restaurantImage {
+  width: 100%;
+}
+
 #back1 {
   background: url("https://wallpapertag.com/wallpaper/middle/b/b/e/376552-food-wallpaper-2560x1600-for-iphone-5s.jpg#.W23e0P2A4x8.link") no-repeat center fixed;
   -webkit-background-size: cover;
