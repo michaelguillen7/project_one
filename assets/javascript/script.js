@@ -131,7 +131,7 @@ $(document).ready(function () {
   }
 
 
-  // Google Places API Key: AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4
+  // Google Places API Key: AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk
   $("#submit-button").on("click", function () {
 
     userCuisine = $("#cuisine").val();
@@ -157,11 +157,12 @@ $(document).ready(function () {
     // Store search results in Firebase
     // db.ref().child("results").set(choiceList);
 
-    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
 
     var targetUrl = queryURL3;
 
     $.get(proxyUrl + targetUrl, function (data) {
+      console.log(data);
       for (item in data.results) {
         choiceList.push(data.results[item]);
       };
