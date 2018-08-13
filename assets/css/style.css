@@ -3,18 +3,14 @@
   height: 40%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   #mainSpacing{
-    height: 20%;
+    height: 60px;
   }
 }
 
 #footerSpacing {
   height: 150px;
-}
-
-#restaurant-details {
-  padding-top: 80px;
 }
 
 .page-footer, #pageHeader {
@@ -107,6 +103,22 @@ option {
   text-shadow: 20;
 }
 
+#restaurant-details {
+  padding-top: 80px;
+}
+
+#result-name {
+  margin-top: 0;
+}
+
+.restaurantImage {
+  width: 100%;
+}
+
+#restaurantImg {
+  padding: 20px 20px 45px 20px;
+}
+
 .card .card-content {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -121,7 +133,6 @@ option {
   display: table;
   margin: 0;
   padding: 0 0;
-
 }
 
 .panel .inner {
@@ -142,9 +153,7 @@ option {
   z-index: -100;
 }
 
-.restaurantImage {
-  width: 100%;
-}
+
 
 #back1 {
   background: linear-gradient(
