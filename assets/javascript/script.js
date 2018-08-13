@@ -34,6 +34,7 @@ $(document).ready(function () {
   var userRating;
   var choiceList = [];
   var returnChoice;
+  var randomIndex;
   var recallList = [];
   var recallChoice;
 
@@ -48,13 +49,14 @@ $(document).ready(function () {
     // $("#result-images").html(returnChoice.photos[0].html_attributions[0]);
     $("#result-name").text(returnChoice.name);
     $("#result-rating").text(returnChoice.rating + "/5");
+    $("#result-price").empty();
     for (i = 1; i <= returnChoice.price_level; i++) {
       $("#result-price").append("$");
     };
     // $("#result-website-link").attr("href", (returnChoice);
     // $("#result-website-link").text((returnChoice.name);
     $("#result-description").text(returnChoice.types[0]);
-    $("#google-map").attr("src", ("https://www.google.com/maps/embed/v1/place?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&q=place_id:" + returnChoice.place_id));
+    $("#google-map").attr("src", ("https://www.google.com/maps/embed/v1/place?q=place_id:" + returnChoice.place_id + "&key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4"));
   }
 
 
@@ -76,7 +78,7 @@ $(document).ready(function () {
     // Store search results in Firebase
     // db.ref().child("results").set(choiceList);
 
-    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAb-0Pdg5FAuE2FKaehXYjFX3sjhvyyQto&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
+    queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBdNXU7ThPd1gzJmEKMQdOjDscIHbrurm4&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow&maxprice=" + userPrice + "&keyword=" + userCuisine + "%" + userRating;
 
     var targetUrl = queryURL;
 
@@ -84,7 +86,9 @@ $(document).ready(function () {
       for (item in data.results) {
         choiceList.push(data.results[item]);
       };
-      returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
+      randomIndex = Math.floor(Math.random() * choiceList.length);
+      returnChoice = choiceList[randomIndex];
+      choiceList.splice(randomIndex, 1);
       localStorage.setItem("returnChoice", JSON.stringify(returnChoice));
       localStorage.setItem("choiceList", JSON.stringify(choiceList));
       displayResults();
@@ -93,6 +97,10 @@ $(document).ready(function () {
     $(document).on("click", "#next-match", function () {
       returnChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
       displayResults();
+    });
+
+    $(document).on("click", "#change-criteria", function () {
+      choiceList = [];
     })
 
   });
