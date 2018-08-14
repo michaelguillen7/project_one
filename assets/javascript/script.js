@@ -113,7 +113,9 @@ $(document).ready(function () {
             userImage.attr("class", "circle responsive-img");
             box.append(userImage);
             box.append($("<h6>").text("Reviewer Name: " + response.user_reviews[i].review.user.name));
-            box.append($("<h7>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
+            if(response.user_reviews[i].review.rating !== 0){
+              box.append($("<h7>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
+            }
             box.append($("<p>").text(response.user_reviews[i].review.review_text));
         }
     });
@@ -153,6 +155,7 @@ $(document).ready(function () {
     }
     userRating = $("#rating").val();
     userPrice = $("#price").val();
+    console.log(userPrice);
 
     $("body:not('#loading')").addClass("fuzzy-background");
     $("#loading").addClass("visible");
@@ -165,7 +168,7 @@ $(document).ready(function () {
     localStorage.setItem("lng", JSON.stringify(lng));
 
 
-    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow=true&maxprice=" + userPrice + "&keyword=" + userCuisine + "&rating=" + userRating;
+    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow=true&minprice=" + userPrice + "&keyword=" + userCuisine + "&rating=" + userRating;
 
     var targetUrl = queryURL3;
 
@@ -175,8 +178,6 @@ $(document).ready(function () {
       };
       randomIndex = Math.floor(Math.random() * choiceList.length);
       returnChoice = choiceList.splice(randomIndex, 1);
-      console.log(choiceList);
-      console.log(returnChoice);
 
       // John's code for previous storage ///////////////////////////////
       localStorage.setItem("previousMatches", []);
