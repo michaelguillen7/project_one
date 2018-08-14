@@ -1,3 +1,9 @@
+// This teeny thing takes you back to the top of the page on refresh.
+// Code found here: https://stackoverflow.com/a/26837814 -Mandie
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
 $(document).ready(function () {
 
   // Initialize Firebase
@@ -12,6 +18,7 @@ $(document).ready(function () {
   // firebase.initializeApp(config);
 
   // var db = firebase.database();
+
   var lat;
   var lng;
 
@@ -78,7 +85,7 @@ $(document).ready(function () {
         }
 
         console.log(response);
-        var rating = $("<h5>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
+        var rating = $("<h4>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
         box.append(name);
         box.append(rating);
         box.append($("<h5>").text("Reviews:"));
