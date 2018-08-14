@@ -37,12 +37,12 @@ function getRestaurant(url) {
     }).then(function(response){
         var box = $("#displayBox");
         console.log(response);
-        var name = $("<h1>").text(response.name);
-        var rating = $("<h3>").text(response.user_rating.aggregate_rating + " out of 5 stars");
+        var name = $("<p>").text(response.name);
+        var rating = $("<p>").text(response.user_rating.aggregate_rating + " out of 5 stars");
         // var reviews = $("")
         box.append(name);
         box.append(rating);
-        box.append($("<h3>").text("Reviews:"));
+        box.append($("<p>").text("Reviews:"));
 
         var ID = response.id;
         var nextURL = "https://developers.zomato.com/api/v2.1/reviews?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + ID;
@@ -60,8 +60,8 @@ function getReviews(url){
         var box = $("#displayBox");
         for(var i = 0; i < 5; i++){
             // console.log(response.user_reviews[i].review.rating);
-            box.append($("<h5>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
-            box.append($("<h7>").text(response.user_reviews[i].review.review_text));
+            box.append($("<p>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
+            box.append($("<p>").text(response.user_reviews[i].review.review_text));
 
         }
     });

@@ -1,3 +1,9 @@
+// This teeny thing takes you back to the top of the page on refresh.
+// Code found here: https://stackoverflow.com/a/26837814 -Mandie
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
 $(document).ready(function () {
   var userDistance;
   var userPrice;
@@ -80,7 +86,8 @@ $(document).ready(function () {
           $("#restaurantImg").hide();
         }
 
-        var rating = $("<h5>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
+
+        var rating = $("<h4>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
         box.append(name);
         box.append(rating);
         box.append($("<h5>").text("Reviews:"));
