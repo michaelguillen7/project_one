@@ -42,12 +42,12 @@
             <div class="col m2"></div>
             <div class="col m8">
                 <div class="row">
-                    <div class="input-field col m3">
-                        <input placeholder="Any" id="cuisine" type="text" class="validate red-text">
+                    <div class="input-field col m3" title="Enter a cuisine type, or any keyword, really.">
+                        <input placeholder="Any" id="cuisine" type="text" class="validate">
                         <label id="cuisine-label" for="cuisine_type">Cuisine</label>
                     </div>
-                    <div class="input-field col m3">
-                        <input placeholder="In Miles" id="distance" type="text" class="validate red-text">
+                    <div class="input-field col m3" title="If left blank, the radius will be 5 miles.">
+                        <input placeholder="In Miles" id="distance" type="text" class="validate">
                         <label id="distance-label" for="distance">Distance</label>
                     </div>
                     <div class="input-field col m3">
@@ -102,6 +102,7 @@
 
 
     <div class="row center" id="restaurant-details">
+        <a id="previous-match" class="waves-effect waves-light btn-small red darken-1">Previous Match</a>
         <a id="next-match" class="waves-effect waves-light btn-small red darken-1">Next Match</a>
         <a id="change-criteria" class="waves-effect waves-light btn-small red darken-1" href="#top">Change Criteria</a>
     </div>
@@ -227,7 +228,7 @@
 
     <!-- Firebase link -->
     <!-- <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script> -->
-    <!-- Mandie has commented out the link for Firebase since we're not using it, and it returns a warning in the console.log. -->
+        <!-- Mandie has commented out the link for Firebase since we're not using it, and it returns a warning in the console.log. -->
 
     <!-- JS link -->
     <script src="assets/javascript/script.js" type="text/javascript"></script>
