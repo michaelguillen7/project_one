@@ -347,6 +347,10 @@ option {
   -webkit-animation-duration: 20s;
 }
 
+#modal-trigger {
+  display: none;
+}
+
 
 /* Affects "About Us" page */
 
@@ -390,24 +394,12 @@ option {
 }
 
 /* For loading screen */
-#loading {
-  visibility: hidden;
-  position: fixed;
-  top: 40%;
-  left: 47%;
-}
-
 .fuzzy-background {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
-}
-
-.visible {
-  visibility: visible!;
-  z-index: 5!;
 }
 
 #map-wrapper {

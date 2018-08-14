@@ -16,9 +16,7 @@ $(document).ready(function () {
   var recallChoice;
   var lat;
   var lng;
-  localStorage.setItem("previousMatches", JSON.stringify(temp));
-  localStorage.setItem("counter", 0);
-  var temp = []
+  $('.modal').modal();
 
   // get location for the specific device being used
   if (navigator.geolocation) {
@@ -26,12 +24,16 @@ $(document).ready(function () {
       lat = position.coords.latitude;
       lng = position.coords.longitude;
 
-    }, function () {
-      handleLocationError(true);
+    }, function (error) {
+      if (error.PERMISSION_DENIED) {
+        $("#modal-trigger").trigger("click");
+        $("#modal-btn").on("click", function () {
+          location.reload()
+        });
+      };
     });
   } else {
     // Browser doesn't support Geolocation
-    handleLocationError(false);
   };
 
   // Localstorage handling for previous search results
@@ -128,8 +130,7 @@ $(document).ready(function () {
   var proxyUrl = 'https://cors-ut-bootcamp.herokuapp.com/';
 
   function displayResults() {
-    $("body:not('#loading')").removeClass("fuzzy-background");
-    $("#loading").removeClass("visible");
+    $("body").removeClass("fuzzy-background");
     //Insert query results onto Restaurant Details page
     $("#result-name").text(returnChoice[0].name);
     $("#result-rating").text(returnChoice[0].rating + "/5");
@@ -157,8 +158,7 @@ $(document).ready(function () {
     userPrice = $("#price").val();
     console.log(userPrice);
 
-    $("body:not('#loading')").addClass("fuzzy-background");
-    $("#loading").addClass("visible");
+    $("body").addClass("fuzzy-background");
 
     localStorage.setItem("cuisine", JSON.stringify(userCuisine));
     localStorage.setItem("distance", JSON.stringify(userDistance));

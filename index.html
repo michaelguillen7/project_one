@@ -118,7 +118,7 @@
             <table class="highlight">
                 <thead>
                     <tr>
-                        <th data-field="id">Rating</th>
+                        <th data-field="id">Google Rating</th>
                         <th data-field="name">Price</th>
                         <th data-field="name">More Info</th>
                     </tr>
@@ -127,7 +127,9 @@
                     <tr>
                         <td id="result-rating"></td>
                         <td id="result-price"></td>
-                        <td><a href="" target="_blank" id="result-website-link">Zomato.com</a></td>
+                        <td>
+                            <a href="" target="_blank" id="result-website-link">Zomato.com</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -142,51 +144,23 @@
 
         <div class="col m2"></div>
 
-    </div> <!-- End of row: Restaurant Name, Data, Featured Image -->
+    </div>
+    <!-- End of row: Restaurant Name, Data, Featured Image -->
 
-    <!-- Start of row: Loading icon for results -->
-    <div id="loading" class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue">
-            <div class="circle-clipper left">
-            <div class="circle"></div>
-            </div><div class="gap-patch">
-            <div class="circle"></div>
-            </div><div class="circle-clipper right">
-            <div class="circle"></div>
-            </div>
-        </div>
+    <!-- Modal Trigger -->
+    <button id="modal-trigger" class="btn modal-trigger" href="#modal1">Modal</button>
 
-        <div class="spinner-layer spinner-red">
-            <div class="circle-clipper left">
-            <div class="circle"></div>
-            </div><div class="gap-patch">
-            <div class="circle"></div>
-            </div><div class="circle-clipper right">
-            <div class="circle"></div>
-            </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Warning</h4>
+            <p>This page requires your location to provide you with results. If you did not approve the location request, please
+                refresh the page and approve the request.</p>
         </div>
-
-        <div class="spinner-layer spinner-yellow">
-            <div class="circle-clipper left">
-            <div class="circle"></div>
-            </div><div class="gap-patch">
-            <div class="circle"></div>
-            </div><div class="circle-clipper right">
-            <div class="circle"></div>
-            </div>
+        <div class="modal-footer">
+            <a id="modal-btn" class="modal-close waves-effect waves-green btn-flat">Ok, I'm sorry</a>
         </div>
-
-        <div class="spinner-layer spinner-green">
-            <div class="circle-clipper left">
-            <div class="circle"></div>
-            </div><div class="gap-patch">
-            <div class="circle"></div>
-            </div><div class="circle-clipper right">
-            <div class="circle"></div>
-            </div>
-        </div>
-        </div>
-    <!-- End of row: Loading icon for results -->
+    </div>
 
     <!-- Start of row: Restaurant Map and Reviews -->
     <div class="row">
@@ -196,15 +170,15 @@
         <div class="col m8">
             <div class="card">
                 <div class="card-content" id="map-wrapper">
-                    <iframe id="google-map" height="450" frameborder="0" style="border:0" src=""
-                        allowfullscreen></iframe>
+                    <iframe id="google-map" height="450" frameborder="0" style="border:0" src="" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
 
         <div class="col m2"></div>
 
-    </div> <!-- End of row: Restaurant Description and Map -->
+    </div>
+    <!-- End of row: Restaurant Description and Map -->
 
 
     <!-- Start of row: Reviews Data-->
