@@ -14,19 +14,27 @@ $(document).ready(function () {
   // var db = firebase.database();
   var lat;
   var lng;
+  $('.modal').modal();
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
       lat = position.coords.latitude;
       lng = position.coords.longitude;
 
-    }, function () {
-      handleLocationError(true);
+    }, function (error) {
+      if (error.PERMISSION_DENIED) {
+        console.log("hey");
+        $("#modal-trigger").trigger("click");
+        $("#modal-btn").on("click", function () {
+          location.reload()
+        });
+      };
     });
   } else {
     // Browser doesn't support Geolocation
-    handleLocationError(false);
   };
+
+
 
   var userDistance;
   var userPrice;
@@ -40,75 +48,75 @@ $(document).ready(function () {
 
   // Zomato API
 
-  function findRestaurant(name){
+  function findRestaurant(name) {
     var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=dd34ea771e5ad9ba983a9a24f13f5416&q=" + name + "&lat=" + lat + "&lon=" + lng;
     // + "&sort=real_distance";
     var restaurantID = "";
     $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        restaurantID = response.restaurants[0].restaurant.id;
-        // console.log(response);
-        var queryURL2 = "https://developers.zomato.com/api/v2.1/restaurant?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + restaurantID;
-        getRestaurant(queryURL2);
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      restaurantID = response.restaurants[0].restaurant.id;
+      // console.log(response);
+      var queryURL2 = "https://developers.zomato.com/api/v2.1/restaurant?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + restaurantID;
+      getRestaurant(queryURL2);
     });
   }
 
 
   function getRestaurant(url) {
     $.ajax({
-        url: url,
-        method: "GET"
-    }).then(function(response){
-        $("#result-website-link").attr("href", response.url);
-        var box = $("#reviewBox");
-        box.empty();
-        $("#restaurantImg").empty();
-        if(response.featured_image){
-          var restaurantImg = $("<img>");
-          restaurantImg.attr("alt", "restaurant image");
-          restaurantImg.attr("src", response.featured_image);
-          restaurantImg.addClass("restaurantImage");
-          $("#restaurantImg").show();
-          $("#restaurantImg").append(restaurantImg);
-        }
-        else{
-          $("#restaurantImg").hide();
-        }
+      url: url,
+      method: "GET"
+    }).then(function (response) {
+      $("#result-website-link").attr("href", response.url);
+      var box = $("#reviewBox");
+      box.empty();
+      $("#restaurantImg").empty();
+      if (response.featured_image) {
+        var restaurantImg = $("<img>");
+        restaurantImg.attr("alt", "restaurant image");
+        restaurantImg.attr("src", response.featured_image);
+        restaurantImg.addClass("restaurantImage");
+        $("#restaurantImg").show();
+        $("#restaurantImg").append(restaurantImg);
+      }
+      else {
+        $("#restaurantImg").hide();
+      }
 
-        console.log(response);
-        var rating = $("<h5>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
-        box.append(name);
-        box.append(rating);
-        box.append($("<h5>").text("Reviews:"));
+      console.log(response);
+      var rating = $("<h5>").text("Zomato Overall Rating: " + response.user_rating.aggregate_rating + " out of 5 stars");
+      box.append(name);
+      box.append(rating);
+      box.append($("<h5>").text("Reviews:"));
 
-        var ID = response.id;
-        var nextURL = "https://developers.zomato.com/api/v2.1/reviews?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + ID;
-        getReviews(nextURL);
+      var ID = response.id;
+      var nextURL = "https://developers.zomato.com/api/v2.1/reviews?apikey=dd34ea771e5ad9ba983a9a24f13f5416&res_id=" + ID;
+      getReviews(nextURL);
     });
 
   }
 
-  function getReviews(url){
+  function getReviews(url) {
     $.ajax({
-        url: url,
-        method: "GET"
-    }).then(function(response){
-        // console.log(response);
-        var box = $("#reviewBox");
-        for(var i = 0; i < response.user_reviews.length; i++){
-            // console.log(response.user_reviews[i].review.rating);
-            // console.log(response.user_reviews[i].review.user);
-            var userImage = $("<img>");
-            userImage.attr("src", response.user_reviews[i].review.user.profile_image);
-            userImage.attr("alt", "User profile image");
-            userImage.attr("class", "circle responsive-img");
-            box.append(userImage);
-            box.append($("<h6>").text("Reviewer Name: " + response.user_reviews[i].review.user.name));
-            box.append($("<h7>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
-            box.append($("<p>").text(response.user_reviews[i].review.review_text));
-        }
+      url: url,
+      method: "GET"
+    }).then(function (response) {
+      // console.log(response);
+      var box = $("#reviewBox");
+      for (var i = 0; i < response.user_reviews.length; i++) {
+        // console.log(response.user_reviews[i].review.rating);
+        // console.log(response.user_reviews[i].review.user);
+        var userImage = $("<img>");
+        userImage.attr("src", response.user_reviews[i].review.user.profile_image);
+        userImage.attr("alt", "User profile image");
+        userImage.attr("class", "circle responsive-img");
+        box.append(userImage);
+        box.append($("<h6>").text("Reviewer Name: " + response.user_reviews[i].review.user.name));
+        box.append($("<h7>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
+        box.append($("<p>").text(response.user_reviews[i].review.review_text));
+      }
     });
   }
 
@@ -119,8 +127,7 @@ $(document).ready(function () {
   var proxyUrl = 'https://cors-ut-bootcamp.herokuapp.com/';
 
   function displayResults() {
-    $("body:not('#loading')").removeClass("fuzzy-background");
-    $("#loading").removeClass("visible");
+    $("body").removeClass("fuzzy-background");
     //Insert query results onto Restaurant Details page
     recallChoice = localStorage.getItem("returnChoice");
     console.log(returnChoice);
@@ -152,8 +159,7 @@ $(document).ready(function () {
     userRating = $("#rating").val();
     userPrice = $("#price").val();
 
-    $("body:not('#loading')").addClass("fuzzy-background");
-    $("#loading").addClass("visible");
+    $("body").addClass("fuzzy-background");
 
     localStorage.setItem("cuisine", JSON.stringify(userCuisine));
     localStorage.setItem("distance", JSON.stringify(userDistance));
