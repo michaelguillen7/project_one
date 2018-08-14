@@ -168,7 +168,7 @@ $(document).ready(function () {
     localStorage.setItem("lng", JSON.stringify(lng));
 
 
-    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow=true&minprice=" + userPrice + "&keyword=" + userCuisine + "&rating=" + userRating;
+    queryURL3 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAnYeat-tcCr2A4o6cIs5OyW7zU3bg1cbk&location=" + lat + "," + lng + "&radius=" + userDistance + "&rankby=prominence&type=restaurant&opennow=true&maxprice=" + userPrice + "&keyword=" + userCuisine + "&rating=" + userRating;
 
     var targetUrl = queryURL3;
 
