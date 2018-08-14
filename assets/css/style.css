@@ -70,6 +70,41 @@ input {
   opacity: 1;
 }
 
+.input-field input[type=text] {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+
+.input-field input[type=text]:hover {
+  border-bottom: 1px solid red ;
+  box-shadow: 0 1px 0 0 red;
+}
+
+#distance[type=text]:enabled {
+  border-bottom: 1px solid white ;
+  box-shadow: 0 1px 0 0 white;
+}
+
+#cuisine[type=text]:enabled {
+  border-bottom: 1px solid white ;
+  box-shadow: 0 1px 0 0 white;
+}
+
+#distance[type=text]:hover {
+  border-bottom: 1px solid red ;
+  box-shadow: 0 1px 0 0 red;
+}
+
+#cuisine[type=text]:hover {
+  border-bottom: 1px solid red ;
+  box-shadow: 0 1px 0 0 red;
+}
+
+
+ul.dropdown-content.select-dropdown li span {
+  color: black; 
+}
+
 option {
   color: red;
 }
