@@ -115,7 +115,9 @@ $(document).ready(function () {
             userImage.attr("class", "circle responsive-img");
             box.append(userImage);
             box.append($("<h6>").text("Reviewer Name: " + response.user_reviews[i].review.user.name));
-            box.append($("<h7>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
+            if(response.user_reviews[i].review.rating !== 0){
+              box.append($("<h7>").text("Rating: " + response.user_reviews[i].review.rating + " out of 5 stars"));
+            }
             box.append($("<p>").text(response.user_reviews[i].review.review_text));
         }
     });
@@ -154,6 +156,7 @@ $(document).ready(function () {
     }
     userRating = $("#rating").val();
     userPrice = $("#price").val();
+    console.log(userPrice);
 
     $("body").addClass("fuzzy-background");
 
@@ -175,8 +178,6 @@ $(document).ready(function () {
       };
       randomIndex = Math.floor(Math.random() * choiceList.length);
       returnChoice = choiceList.splice(randomIndex, 1);
-      console.log(choiceList);
-      console.log(returnChoice);
 
       // John's code for previous storage ///////////////////////////////
       localStorage.setItem("previousMatches", []);
